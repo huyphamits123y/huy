@@ -1,0 +1,40 @@
+{% extends 'layout/base.html' %}
+{% block title %}Trang Chu{% endblock %}
+{% block content %}
+
+<!-- <form>-->
+<!--     <input type="text" name="keyword"  placeholder="nhap tu khoa tim kiem " />-->
+<!--     <input type="number" name="from_price" placeholder="nhap gia bat dau" />-->
+<!--     <input type="number" name="to_price" placeholder="nhap gia ket thuc" />-->
+<!--     <input type="submit" value="tim kiem" />-->
+<!-- </form>-->
+<!-- <ul>-->
+
+<!--     <li><a href="{{ url_for('product_list') }}">Tat ca san pham</a></li>-->
+<!--     {% for c in catgories %}-->
+<!--     <li><a href="{{ url_for('product_list', category_id = c.id)}}">{{c.name}}</a></li>-->
+<!--     {% endfor %}-->
+<!-- </ul>-->
+<div class="container">
+    {% if products %}
+    <div class="row">
+        {% for p in products %}
+        <div class="col-md-3 col-sm-6" style="padding:1rem;">
+            <div class="card" >
+               <img class="card-img-top" src="{{p.image}}" alt="{{p.name}}">
+              <div class="card-body">
+                 <h4 class="card-title">{{p.name}}</h4>
+                 <p class="card-text">{{"{:,.1f}".format(p.price)}} VND</p>
+                  <p class="card-text">{{p.description}}</p>
+                 <a href="javascript:;" onclick="addToCart({{p.id}},'{{p.name}}', {{p.price}})" class="btn btn-primary">Đặt Vé</a>
+                  <a  href="/products/{{p.id}}" class="btn btn-primary">Xem chi tiết</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p><i>Không Có Danh Mục Chuyến Đi</i></p>
+    {% endif %}
+</div>
+{% endblock %}

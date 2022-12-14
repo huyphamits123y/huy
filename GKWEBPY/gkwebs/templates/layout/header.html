@@ -1,0 +1,71 @@
+<div  class="menu">
+    <div class="menu1">
+        <img src="{{url_for('static', filename='images/img.png') }}"  alt='anh1'/>
+
+    </div>
+   <div class="menu2">
+        <div class="menu3">
+            <ul class="sun">
+                {% if current_user.is_authenticated %}
+                 <li class="nav-item">
+                    <a class="nav-link text-success" href="/">
+                        <img src="{{ current_user.avatar }}" width="40" class="rounded-circle" name="{{ current_user.name }}" />
+                        Chào {{ current_user.name }}
+                    </a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-danger" href="/logout">Đăng xuất</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="/login">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="/register">Đăng ký</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="/cart"> Giỏ Hàng<span class="badge bg-danger cart-counter"></span></a>
+                </li>
+                <form class="form-inline">
+                   <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Nhập từ khóa">
+                   <button class="btn btn-success" type="submit">Search</button>
+                </form>
+            </ul>
+
+        </div>
+       <div class="menu4">
+           <ul class="good">
+               <li class="lap">
+                   <a href="/">Trang Chủ</a>
+<!--                   <ul class="sub">-->
+<!--                       <li><a href="#">Vé máy bay & Sản phẩm liên kết</a></li>-->
+<!--                       <li><a href="#">Trải nghiệm bay cùng VNA</a></li>-->
+<!--                       <li><a href="#">Lịch bay</a></li>-->
+<!--                   </ul>-->
+
+               </li>
+               <li class="lap">
+                <a href="#">Lên kế hoạch</a>
+                <ul class="sub">
+                    <li><a href="#">Giá vé đặt biệt</a></li>
+                    <li><a href="#">Điều kiện giá vé</a></li>
+                    <li><a href="#">Dịch vụ bổ trợ</a></li>
+                </ul>
+            </li>
+               <li class="lap">
+                <a href="#">Thông tin hành trình</a>
+                <ul class="sub">
+                    <li><a href="#">Làm Thủ Tục Trực Tuyến</a></li>
+                    <li><a href="#">Quầy Tự Làm Thủ Tục</a></li>
+                    <li><a href="#">Làm Thủ Tục Qua Điện Thoại</a></li>
+                    <li><a href="#">Làm Thủ Tục Tại Sân Bay</a></li>
+                </ul>
+
+            </li>
+           </ul>
+
+       </div>
+   </div>
+
+</div>

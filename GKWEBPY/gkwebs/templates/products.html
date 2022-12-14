@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Chuyến Đi </title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+ <div class="sun">
+     <h1 class="subject">Danh Mục Chuyến Đi/h1>
+     <form>
+     <input type="text" name="keyword"  placeholder="nhap tu khoa tim kiem " />
+     <input type="number" name="from_price" placeholder="nhap gia bat dau" />
+     <input type="number" name="to_price" placeholder="nhap gia ket thuc" />
+     <input type="submit" value="tim kiem" />
+     </form>
+  <table border="1" class="product">
+     <tr>
+         <th></th>
+         <th>Mã Vé</th>
+         <th>Tên Chuyến Đi</th>
+         <th>Mô Tả</th>
+         <th>Giá Vé</th>
+     </tr>
+     {% for p in products %}
+     <tr>
+         <td>
+             <a href="{{url_for('product_detail', product_id=p.id)}}">
+                 <img src="{{url_for('static',  filename=p.image)}}" width=120px alt="{{p.name}}" />
+             </a>
+         </td>
+         <td>{{p.id}}</td>
+         <td>{{p.name}}</td>
+         <td>{{p.description}}</td>
+         <td>{{p.price}}</td>
+     </tr>
+     {% endfor %}
+    </table>
+ </div>
+
+</body>
+</html>

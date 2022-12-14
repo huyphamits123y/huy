@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="stop">
+    <h1 class="text-center text-success">Giỏ Hàng</h1>
+</div>
+{% if 'cart' in session and session['cart'] %}
+<table class="table">
+    <tr>
+        <th> Mã Vé </th>
+        <th> Chuyến Đi</th>
+        <th> Giá Vé</th>
+        <th> Số lượng hành khách</th>
+        <th></th>
+    </tr>
+    {% for c in session['cart'].values() %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.price}} VND</td>
+        <td>
+            <input type="number" min="0" value="{{c.quantity}}" class="form-control"/>
+        </td>
+        <td>
+            <input type="button" value="xóa" class="btn btn-danger" />
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    {% if current_user.is_authenticated %}
+    <input type="button" value="Thanh toán" onclick="pay()" class="btn btn-success" />
+    {% else %}
+    <p>Vui lòng <a href="/login?next=/cart">đăng nhập</a> để thanh toán!</p>
+    {% endif %}
+</div>
+{% else %}
+<p> Không có sản phẩm trong giỏ </p>
+{% endif %}
+{% endblock %}

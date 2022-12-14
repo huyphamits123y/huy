@@ -1,0 +1,29 @@
+[{
+ "id": 1,
+ "name": "Thành Phố Hồ Chí Minh đến Hà Nội",
+ "description": "Khởi hành lúc 9h ",
+ "price": 17000000,
+ "image": "images/img_7.png",
+ "category_id": 1
+}, {
+ "id": 2,
+ "name": "Thành Phố Hồ Chí Minh đến Đà Nẵng",
+ "description": "Khởi hành lúc 12h",
+ "price": 37000000,
+ "image": "images/img_8.png",
+ "category_id": 2
+}, {
+ "id": 3,
+ "name": "Thành Phố Hồ Chí Minh đến Phú Quốc",
+"description": "Khởi hành lúc 8h",
+ "price": 24000000,
+ "image": "images/img_9.png",
+ "category_id": 1
+}, {
+ "id": 4,
+ "name": "Thành Phố Hồ Chí Minh đến Huế",
+"description": "Khởi hành lúc 1h",
+ "price": 24000000,
+ "image": "images/img_10.png",
+ "category_id": 1
+}]
